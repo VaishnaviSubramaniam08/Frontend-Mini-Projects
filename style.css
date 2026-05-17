@@ -1,0 +1,98 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:40px;
+}
+
+.container{
+    width:100%;
+    max-width:500px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#333;
+}
+
+.input-section{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+textarea{
+    width:100%;
+    height:120px;
+    padding:15px;
+    font-size:16px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    resize:none;
+    outline:none;
+}
+
+textarea:focus{
+    border-color:black;
+}
+
+#addBtn{
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:black;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#addBtn:hover{
+    opacity:0.8;
+}
+
+#notesContainer{
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.note{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.note p{
+    font-size:16px;
+    line-height:1.5;
+    color:#333;
+    word-wrap:break-word;
+}
+
+.deleteBtn{
+    margin-top:15px;
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    background:red;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+ .deleteBtn:hover{
+    opacity:0.8;
+} 
