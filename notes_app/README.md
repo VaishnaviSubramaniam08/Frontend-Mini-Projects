@@ -1,0 +1,95 @@
+# 📝 Notes App
+
+A simple and elegant Notes Taking Application built using HTML, CSS, and Vanilla JavaScript.
+
+This project allows users to create and delete notes dynamically with a clean and responsive user interface.
+
+---
+
+## 🚀 Features
+
+- Add new notes
+- Delete existing notes
+- Responsive design
+- Simple and clean UI
+- Dynamic DOM manipulation
+- Beginner-friendly project
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
+
+---
+
+## 📂 Project Structure
+
+notes-app/
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+
+---
+
+## 📸 Preview
+
+The application includes:
+
+- Note input area
+- Add Note button
+- Dynamic notes container
+- Delete functionality
+
+---
+
+## ⚙️ How It Works
+
+1. User writes a note in the textarea.
+2. Clicking the "Add Note" button creates a new note dynamically using JavaScript.
+3. Each note includes a delete button.
+4. Clicking delete removes the note from the page instantly.
+
+---
+
+## ▶️ How to Run the Project
+
+1. Download or clone the repository.
+2. Open the project folder.
+3. Run `index.html` in your browser.
+
+OR
+
+Use Live Server in VS Code for better development experience.
+
+---
+
+## 📚 JavaScript Concepts Used
+
+- DOM Manipulation
+- Event Listeners
+- createElement()
+- appendChild()
+- remove()
+- classList
+- innerText
+- Functions
+- Conditional Statements
+
+---
+
+## 🎯 Future Improvements
+
+- Edit notes
+- Local Storage support
+- Dark mode
+- Search notes
+- Categories/Tags
+- Date & Time
+- Responsive mobile improvements
+
+---
