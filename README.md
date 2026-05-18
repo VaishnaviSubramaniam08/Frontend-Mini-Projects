@@ -10,6 +10,9 @@ A simple notes app to create and delete notes. Uses dynamic DOM manipulation.
 ### 2. [Todo List App](./todo_app/)
 A task management app to add, complete, and delete tasks. Features strike-through for completed items.
 
+### 3. [Calculator App](./calculator_app/)
+A responsive calculator for basic arithmetic operations. Built using CSS Grid and JavaScript.
+
 ---
 
 ## 🛠️ How to Run
