@@ -16,6 +16,9 @@ A responsive calculator for basic arithmetic operations. Built using CSS Grid an
 ### 4. [Digital Clock](./digital_clock/)
 A simple digital clock with date display and a dark mode toggle.
 
+### 5. [Weather App](./weather_app/)
+A weather application that fetches real-time data using the OpenWeatherMap API.
+
 ---
 
 ## 🛠️ How to Run
