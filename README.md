@@ -13,6 +13,9 @@ A task management app to add, complete, and delete tasks. Features strike-throug
 ### 3. [Calculator App](./calculator_app/)
 A responsive calculator for basic arithmetic operations. Built using CSS Grid and JavaScript.
 
+### 4. [Digital Clock](./digital_clock/)
+A simple digital clock with date display and a dark mode toggle.
+
 ---
 
 ## 🛠️ How to Run
