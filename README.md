@@ -19,6 +19,12 @@ A simple digital clock with date display and a dark mode toggle.
 ### 5. [Weather App](./weather_app/)
 A weather application that fetches real-time data using the OpenWeatherMap API.
 
+### 6. [Expense Tracker](./expense_tracker/)
+An application to manage personal finances, featuring transaction history and a visual pie chart breakdown.
+
+### 7. [Sudoku Game](./sudoku_app/)
+A classic puzzle game with real-time move validation and a built-in timer.
+
 ---
 
 ## 🛠️ How to Run

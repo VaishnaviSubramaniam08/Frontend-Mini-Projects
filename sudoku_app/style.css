@@ -1,0 +1,95 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    text-align:center;
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    background:#333;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+button:hover{
+    background:black;
+}
+
+#board{
+    display:grid;
+    grid-template-columns:repeat(9,50px);
+    grid-template-rows:repeat(9,50px);
+    gap:0;
+    margin:auto;
+}
+
+.cell{
+    width:50px;
+    height:50px;
+    border:1px solid #999;
+    text-align:center;
+    font-size:20px;
+    outline:none;
+}
+
+.cell:focus{
+    background:#dbefff;
+}
+
+.fixed{
+    background:#ddd;
+    font-weight:bold;
+}
+
+.invalid{
+    background:#ffb3b3;
+}
+
+.cell:nth-child(3n){
+   border-right:3px solid black;
+}
+
+.cell:nth-child(9n + 1){
+    border-left:3px solid black;
+}
+
+.cell:nth-child(-n + 9){
+    border-top:3px solid black;
+}
+
+.cell:nth-child(n + 73){
+    border-bottom:3px solid black;
+}
+
+#message{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+    color:green;
+}
