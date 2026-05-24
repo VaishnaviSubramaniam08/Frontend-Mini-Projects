@@ -6,13 +6,10 @@ const balance=document.getElementById("balance");
 const incomeEl=document.getElementById("income");
 const expenseEl=document.getElementById("expense");
 const transactionList=document.getElementById("transactionlist");
-
 let transactions=JSON.parse(localStorage.getItem("transactions"))||[];
-
 function saveLocalStorage(){
     localStorage.setItem("transactions",JSON.stringify(transactions));
 }
-
 function displayTransactions(){
     transactionList.innerHTML="";
     transactions.forEach((item,index)=>{
@@ -54,7 +51,6 @@ function addTransaction(e){
     displayTransactions();
     updateValues();
     form.reset();
-
 }
 
 function updateValues(){

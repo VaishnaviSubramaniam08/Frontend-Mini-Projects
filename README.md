@@ -25,6 +25,9 @@ An application to manage personal finances, featuring transaction history and a 
 ### 7. [Sudoku Game](./sudoku_app/)
 A classic puzzle game with real-time move validation and a built-in timer.
 
+### 8. [Quiz App](./quiz_app/)
+An interactive quiz application with a timer, scoring, and instant feedback.
+
 ---
 
 ## 🛠️ How to Run
