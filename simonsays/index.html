@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simon Says Game</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 320px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(2, 150px);
+            gap: 20px;
+        }
+
+        .btn {
+            width: 150px;
+            height: 150px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .red {
+            background: red;
+        }
+
+        .green {
+            background: green;
+        }
+
+        .blue {
+            background: blue;
+        }
+
+        .yellow {
+            background: gold;
+        }
+
+        .flash {
+            opacity: 0.3;
+        }
+
+        #status {
+            font-size: 22px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simon Says Game</h1>
+    <h2>Press Start</h2>
+
+    <div class="container">
+        <div class="btn red" id="red"></div>
+        <div class="btn green" id="green"></div>
+        <div class="btn blue" id="blue"></div>
+        <div class="btn yellow" id="yellow"></div>
+    </div>
+
+    <button onclick="startGame()">Start Game</button>
+
+    <p id="status">Level: 0</p>
+
+    <script>
+
+        let colors = ["red", "green", "blue", "yellow"];
+
+        let gamePattern = [];
+        let userPattern = [];
+        let level = 0;
+
+        function startGame() {
+            level = 0;
+            gamePattern = [];
+            nextSequence();
+        }
+
+        function nextSequence() {
+
+            userPattern = [];
+            level++;
+
+            document.getElementById("status").innerText =
+                "Level: " + level;
+
+            let randomColor =
+                colors[Math.floor(Math.random() * 4)];
+
+            gamePattern.push(randomColor);
+
+            showSequence();
+        }
+
+        function showSequence() {
+
+            let i = 0;
+
+            let interval = setInterval(() => {
+
+                flashButton(gamePattern[i]);
+
+                i++;
+
+                if (i >= gamePattern.length) {
+                    clearInterval(interval);
+                }
+
+            }, 700);
+        }
+
+        function flashButton(color) {
+
+            let btn = document.getElementById(color);
+
+            btn.classList.add("flash");
+
+            setTimeout(() => {
+                btn.classList.remove("flash");
+            }, 300);
+        }
+
+        document.querySelectorAll(".btn").forEach(btn => {
+
+            btn.addEventListener("click", function () {
+
+                let color = this.id;
+
+                userPattern.push(color);
+
+                flashButton(color);
+
+                checkAnswer(userPattern.length - 1);
+            });
+
+        });
+
+        function checkAnswer(index) {
+
+            if (userPattern[index] === gamePattern[index]) {
+
+                if (userPattern.length === gamePattern.length) {
+
+                    setTimeout(() => {
+                        nextSequence();
+                    }, 1000);
+                }
+
+            } else {
+
+                document.getElementById("status").innerText =
+                    "Game Over! Score: " + level;
+
+                alert("Wrong Pattern!");
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>

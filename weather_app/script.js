@@ -21,7 +21,6 @@ async function getWeather(city){
         weatherIcon.src=`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
         temperature.innerText=`${data.main.temp} °C`;
         description.innerText=data.weather[0].description;
-
     }catch(error){
         alert("City Not found");
     }

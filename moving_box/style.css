@@ -1,0 +1,9 @@
+body{
+    text-align:center;
+    font-family:Arial;
+    background:#f2f2f2;    
+}
+#game{
+   background-color:white;
+   border:2px solid black;
+}

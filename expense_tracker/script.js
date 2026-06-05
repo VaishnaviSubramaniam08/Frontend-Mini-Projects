@@ -87,10 +87,6 @@ function updateChart(income,expense){
         }
     });
 }
-
-
 form.addEventListener("submit",addTransaction);
-
-
 displayTransactions();
 updateValues();

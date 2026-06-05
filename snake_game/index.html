@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snake Game</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        canvas {
+            border: 2px solid black;
+            background: white;
+            margin-top: 20px;
+        }
+
+        #score {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Snake Game</h1>
+
+    <p>Score: <span id="score">0</span></p>
+
+    <canvas id="game" width="400" height="400"></canvas>
+
+    <script>
+
+        const canvas = document.getElementById("game");
+        const ctx = canvas.getContext("2d");
+        const scoreText = document.getElementById("score");
+
+        const box = 20; // size of one grid cell
+
+        let score = 0;
+
+        let snake = [
+            { x: 5, y: 5 }
+        ];
+
+        let food = {
+            x: Math.floor(Math.random() * 20),
+            y: Math.floor(Math.random() * 20)
+        };
+
+        let direction = "RIGHT";
+
+        document.addEventListener("keydown", function(e) {
+
+            if (e.key === "ArrowUp" && direction !== "DOWN")
+                direction = "UP";
+
+            if (e.key === "ArrowDown" && direction !== "UP")
+                direction = "DOWN";
+
+            if (e.key === "ArrowLeft" && direction !== "RIGHT")
+                direction = "LEFT";
+
+            if (e.key === "ArrowRight" && direction !== "LEFT")
+                direction = "RIGHT";
+        });
+
+        function draw() {
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw Snake
+            snake.forEach(function(part, index) {
+
+                if (index === 0) {
+                    ctx.fillStyle = "darkgreen";
+                } else {
+                    ctx.fillStyle = "green";
+                }
+
+                ctx.fillRect(
+                    part.x * box,
+                    part.y * box,
+                    box,
+                    box
+                );
+            });
+
+            // Draw Food
+            ctx.fillStyle = "red";
+
+            ctx.fillRect(
+                food.x * box,
+                food.y * box,
+                box,
+                box
+            );
+        }
+
+        function game() {
+
+            let head = {
+                ...snake[0]
+            };
+
+            // Move Head
+            if (direction === "RIGHT")
+                head.x++;
+
+            if (direction === "LEFT")
+                head.x--;
+
+            if (direction === "UP")
+                head.y--;
+
+            if (direction === "DOWN")
+                head.y++;
+
+            // Wall Collision
+            if (
+                head.x < 0 ||
+                head.y < 0 ||
+                head.x >= 20 ||
+                head.y >= 20
+            ) {
+
+                alert("Game Over!");
+
+                resetGame();
+                return;
+            }
+
+            // Self Collision
+            for (let i = 0; i < snake.length; i++) {
+
+                if (
+                    head.x === snake[i].x &&
+                    head.y === snake[i].y
+                ) {
+
+                    alert("Game Over!");
+
+                    resetGame();
+                    return;
+                }
+            }
+
+            snake.unshift(head);
+
+            // Food Collision
+            if (
+                head.x === food.x &&
+                head.y === food.y
+            ) {
+
+                score++;
+                scoreText.textContent = score;
+
+                food = {
+                    x: Math.floor(Math.random() * 20),
+                    y: Math.floor(Math.random() * 20)
+                };
+
+            } else {
+
+                snake.pop();
+            }
+
+            draw();
+        }
+
+        function resetGame() {
+
+            snake = [
+                { x: 5, y: 5 }
+            ];
+
+            direction = "RIGHT";
+
+            score = 0;
+
+            scoreText.textContent = score;
+
+            food = {
+                x: Math.floor(Math.random() * 20),
+                y: Math.floor(Math.random() * 20)
+            };
+        }
+
+        draw();
+
+        setInterval(game, 150);
+
+    </script>
+
+</body>
+</html>
