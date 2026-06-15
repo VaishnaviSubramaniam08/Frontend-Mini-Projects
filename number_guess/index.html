@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family:Arial;
+            background-color: rgb(145, 209, 188);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+       }
+        .container{
+              width:300px;
+              height:300px;
+              background-color: white;
+              margin:150px auto;
+              padding:30px;
+              border-radius: 20px;  
+        }
+        input{
+            border: 1px solid black;
+            padding:10px;
+            border-radius: 10px;
+        }
+        button{
+            padding:10px;
+            border-radius: 10px;
+            background-color: black;
+            color:white;
+            cursor: pointer;
+        }
+        button:hover{
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Number Guessing Game</h1>
+        <p>Guess a number between 1 to 100</p>
+        <input type="number" id="randint" placeholder="Enter your guess">
+        <button onclick="guessnumber()">Guess</button>
+        <p id="message"></p>
+        <p>Attempts: <span id="attemptcount">0</span></p>
+        <button onclick="restartgame()">Restart Game</button>
+    </div>
+    <script>
+        let randomNumber=Math.floor(Math.random()*100)+1;
+        console.log(randomNumber);
+        let attempts=0;
+        function guessnumber(){
+            let guess=Number(document.getElementById("randint").value);
+           let message=document.getElementById("message");
+           if(!guess){
+            alert("Please enter a number!!");
+            return;
+           }
+           attempts++;
+           document.getElementById("attemptcount").innerHTML=attempts;
+            if(guess===randomNumber){
+                   message.innerHTML="You won the game!!";
+                   message.style.color="green";                
+            }else if(guess<randomNumber){
+                message.innerHTML="Too Low!!"
+                message.style.color="yellow";
+            }else{
+                message.innerHTML="Too High!!";
+                message.style.color="Red";
+            }
+        }
+        function restartgame(){
+            randomNumber=Math.floor(Math.random()*100)+1;
+            console.log(randomNumber);
+            attempts=0;
+            document.getElementById("attemptcount").innerText=0;
+            document.getElementById("message").innerHTML="";
+            document.getElementById("randint").value="";
+        }
+    </script>
+</body>
+</html>
